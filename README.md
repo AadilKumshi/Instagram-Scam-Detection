@@ -4,7 +4,7 @@ SarNET is a real-time Instagram scam account detection system built using Stream
 
 ## Features
 
-- Scrapes metadata for any public Instagram username
+- Scrapes metadata for any public Instagram username 
 - Extracts 12 key features such as follower ratio, bio content, verification status, etc.
 - Predicts whether the account is real or scam using a trained Random Forest model
 - Displays prediction and confidence score in a clean user interface
