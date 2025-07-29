@@ -46,7 +46,7 @@ def extract_bio_features(bio):
 # Real-time scraper function
 def scrape_instagram_features(username):
     L = instaloader.Instaloader()
-    L.load_session_from_file("bradpittswa", filename="session-iguser")
+    L.load_session_from_file("tylerdurdenisrealll", filename="session-iguser")
 
     with SuppressHdProfilePicWarning():
         try:
