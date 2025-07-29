@@ -110,11 +110,33 @@ if st.button("Analyze Account"):
             prediction = model.predict(df)[0]
             probability = model.predict_proba(df)[0][prediction]
 
-            st.success("✅ Analysis Complete")
             if prediction == 1:
                 st.markdown(f"### 🟢 Account is **Real** with **{round(probability*100, 2)}%** confidence.")
             else:
                 st.markdown(f"### 🔴 Account is likely **Scam** with **{round(probability*100, 2)}%** confidence.")
 
-            with st.expander("🔍 View Extracted Features"):
-                st.json(features)
+            st.markdown("#### Account Metadata Features")
+            feature_labels = {
+                "has_profile_pic": "Profile Picture",
+                "followers": "Followers",
+                "following": "Following",
+                "post_count": "Posts",
+                "follow_ratio": "Follower/Following Ratio",
+                "bio_length": "Bio Length",
+                "contains_link": "Contains Link",
+                "suspicious_keywords_present": "Suspicious Keywords Present",
+                "mentions_count": "Mentions in Bio",
+                "emoji_in_bio": "Emoji in Bio",
+                "is_verified": "Verified Account",
+                "digit_count_in_username": "Digits in Username"
+            }
+            cols = st.columns(2)
+            for i, (key, label) in enumerate(feature_labels.items()):
+                value = features.get(key, "-")
+                if isinstance(value, float):
+                    value = f"{value:.2f}"
+                elif isinstance(value, int):
+                    if key in ["has_profile_pic", "contains_link", "suspicious_keywords_present", "emoji_in_bio", "is_verified"]:
+                        value = "Yes" if value else "No"
+                with cols[i % 2]:
+                    st.markdown(f"{label}: **{value}**")
