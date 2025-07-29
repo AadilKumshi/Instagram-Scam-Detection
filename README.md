@@ -1,27 +1,29 @@
-# SarNET
+# SarNET : Instagram Scam Account Detection
 
-A real-time Instagram scam account detection tool powered by Machine Learning and Streamlit, using profile metadata scraping for accurate classification.
+SarNET is a real-time Instagram scam account detection system built using Streamlit and machine learning. It analyzes public profile metadata to classify accounts as real or potentially fake.
 
-## 🔍 What It Does
+## Features
 
-- Scrapes metadata of any public Instagram username in real time
-- Analyzes 12 key features like followers, bio content, verification status, etc.
-- Predicts if the account is **real or scam** using a trained ML model
-- Shows a confidence score with a clean, interactive UI
+- Scrapes metadata for any public Instagram username
+- Extracts 12 key features such as follower ratio, bio content, verification status, etc.
+- Predicts whether the account is real or scam using a trained Random Forest model
+- Displays prediction and confidence score in a clean user interface
 
-## 📓 Demo Notebook
+## Demo Notebook
 
-A well-documented Jupyter notebook is included in the repository for testing, inspecting predictions, and understanding the feature pipeline.
+A Jupyter notebook is included for testing, experimentation, and understanding the data pipeline.
 
-> 📁 **File:** `Notebook.ipynb`
+**Notebook File:** `Notebook.ipynb`
 
-## 🚀 Built With
+## Tech Stack
 
-- Python · Streamlit · Instaloader · scikit-learn · joblib
+- Python
+- Streamlit
+- Instaloader
+- scikit-learn
+- joblib
 
-## 🧠 Model
+## Model
 
-The model is trained using a Random Forest classifier on scraped Instagram profile data, with features carefully engineered to capture behavioral and structural patterns of fake accounts.
-
-
+The classifier is trained on a dataset of real and fake Instagram accounts. It uses profile-level features engineered to highlight typical behavior patterns of scam accounts.
 
